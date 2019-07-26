@@ -13,14 +13,15 @@ namespace SlotMachine3x3.XUnit.Tests
         {
             //Arrange
             uint bet = 1;
-            _machine = new SlotMachine(40);
             string[,] slots = new string[3, 3]
             {
                 { "🍒","🍏","💰" },
                 { "🍇","🍇","🍇" },
                 { "⚜️","🍒","🔔" }
             };
-            _machine.Slots = slots;
+            var slotsRandomizer = new Mock<ISlotsRandomizer>();
+            slotsRandomizer.Setup(i => i.Prepare()).Returns(slots);
+            _machine = new SlotMachine(40,slotsRandomizer.Object);
             //Act
             uint reward = _machine.Play(bet);
             //Assert
@@ -31,23 +32,22 @@ namespace SlotMachine3x3.XUnit.Tests
         {
             //Arrange
             _machine = new SlotMachine(39);
-            //Act
-            _machine.Prepare();
-            //Assert
+            //Act //Assert
             Assert.Throws<ArgumentException>(() => _machine.Play(1));
         }
         [Fact]
         public void Play_Bet1NotWon_UserGetReward()
         {
             //Arrange
-            _machine = new SlotMachine(40);
             string[,] slots = new string[3, 3]
             {
                 { "🍒","🍏","💰" },
                 { "🍏","🍇","🍇" },
                 { "⚜️","🍒","🔔" }
             };
-            _machine.Slots = slots;
+            var slotsRandomizer = new Mock<ISlotsRandomizer>();
+            slotsRandomizer.Setup(i => i.Prepare()).Returns(slots);
+            _machine = new SlotMachine(40, slotsRandomizer.Object);
             //Act
             uint reward = _machine.Play(9);
             //Assert
@@ -59,7 +59,7 @@ namespace SlotMachine3x3.XUnit.Tests
                 { "🍇","🍏","🍇" },
                 { "⚜️","🍒","🔔" }
             };
-            _machine.Slots = slots;
+            slotsRandomizer.Setup(i => i.Prepare()).Returns(slots);
             //Act
             reward = _machine.Play(9);
             //Assert
@@ -70,7 +70,7 @@ namespace SlotMachine3x3.XUnit.Tests
                 { "🍇","🍇","🍏" },
                 { "⚜️","🍒","🔔" }
             };
-            _machine.Slots = slots;
+            slotsRandomizer.Setup(i => i.Prepare()).Returns(slots);
             //Act
             reward = _machine.Play(9);
             //Assert
