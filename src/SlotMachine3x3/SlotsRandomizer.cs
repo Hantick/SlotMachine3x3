@@ -24,17 +24,17 @@ namespace SlotMachine3x3
         {
             string[] slotsToRand = new string[32];
             for (int i = 0; i < 8; i++)
-                slotsToRand[i] = SlotMachineConstants.GRAPE;
+                slotsToRand[i] = SlotMachineConstants.GRAPE;    //8
             for (int i = 8; i < 15; i++)
-                slotsToRand[i] = SlotMachineConstants.APPLE;
+                slotsToRand[i] = SlotMachineConstants.APPLE;    //7
             for (int i = 15; i < 21; i++)
-                slotsToRand[i] = SlotMachineConstants.CHERRY;
+                slotsToRand[i] = SlotMachineConstants.CHERRY;   //5
             for (int i = 21; i < 26; i++)
-                slotsToRand[i] = SlotMachineConstants.BELL;
+                slotsToRand[i] = SlotMachineConstants.BELL;     //4
             for (int i = 26; i < 30; i++)
-                slotsToRand[i] = SlotMachineConstants.BAR;
+                slotsToRand[i] = SlotMachineConstants.BAR;      //3
             for (int i = 30; i < 32; i++)
-                slotsToRand[i] = SlotMachineConstants.JACK;
+                slotsToRand[i] = SlotMachineConstants.JACK;     //1
 
             for (int row = 0; row < 3; row++)
                 for (int col = 0; col < 3; col++)
