@@ -9,7 +9,7 @@ namespace SlotMachine3x3.XUnit.Tests
         private ISlotMachine _machine;
 
         [Fact]
-        public void Play_Bet1GrapeMiddleRowWon_UserGetReward()
+        public void Play_Bet1GrapeMiddleRowWon_UserGet3Reward()
         {
             //Arrange
             uint bet = 1;
@@ -36,7 +36,7 @@ namespace SlotMachine3x3.XUnit.Tests
             Assert.Throws<ArgumentException>(() => _machine.Play(1));
         }
         [Fact]
-        public void Play_Bet1NotWon_UserGetReward()
+        public void Play_Bet1NotWon_UserGet0Reward()
         {
             //Arrange
             string[,] slots = new string[3, 3]
