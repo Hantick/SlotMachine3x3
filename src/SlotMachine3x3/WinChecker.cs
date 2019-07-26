@@ -49,8 +49,8 @@
                 //JACKPOT!!!
                 else if (row == 1 && _slotMachine.Slots[row, 0] == SlotMachineConstants.JACK)
                 {
-                    uint coins = _slotMachine.Coins;
-                    _slotMachine.Coins = 0;
+                    uint coins = (uint)(_slotMachine.Coins * 0.80);
+                    _slotMachine.Coins -= coins;
                     return coins;
                 }
             }

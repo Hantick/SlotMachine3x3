@@ -5,18 +5,17 @@ namespace SlotMachine3x3
 
     public class SlotMachine : ISlotMachine
     {
-        public uint Coins { get; set; } //Coins in the machine
-        //3x3 fields
-        public string[,] Slots { get; set; } = new string[3, 3];
-        private readonly ISlotsRandomizer _slotsRandomizer;
-        private readonly IWinChecker _winChecker;
-
         public enum Row
         {
             top = 0,
             middle = 1,
             bottom = 2
         }
+        public uint Coins { get; set; }                                  //Coins in the machine
+        public string[,] Slots { get; set; } = new string[3, 3];         //3x3 fields
+        private readonly ISlotsRandomizer _slotsRandomizer;
+        private readonly IWinChecker _winChecker;
+
         public SlotMachine(uint coins)
         {
             _slotsRandomizer = new SlotsRandomizer();
