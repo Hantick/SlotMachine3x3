@@ -1,4 +1,4 @@
-﻿namespace VincenzoBot.Discord
+﻿namespace SlotMachine3x3
 {
     public interface ISlotMachine
     {

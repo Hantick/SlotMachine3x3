@@ -1,11 +1,8 @@
 ﻿using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using VincenzoBot.Discord;
 using Xunit;
 
-namespace VincenzoBot.XUnit.Tests
+namespace SlotMachine3x3.XUnit.Tests
 {
     public class SlotMachineTests
     {
@@ -15,6 +12,7 @@ namespace VincenzoBot.XUnit.Tests
         public void Play_Bet1GrapeMiddleRowWon_UserGetReward()
         {
             //Arrange
+            uint bet = 1;
             _machine = new SlotMachine(40);
             string[,] slots = new string[3, 3]
             {
@@ -24,9 +22,9 @@ namespace VincenzoBot.XUnit.Tests
             };
             _machine.Slots = slots;
             //Act
-            uint reward = _machine.Play(9);
+            uint reward = _machine.Play(bet);
             //Assert
-            Assert.Equal(12, (int)reward);
+            Assert.Equal((int)(bet+3), (int)reward);
         }
         [Fact]
         public void CheckWin_NotEnoughCoinsInMachine_ThrowException()

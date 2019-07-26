@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachine3x3", "SlotMachine3x3.csproj", "{D7F1FE66-6E39-4652-9013-006EB276A869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlotMachine3x3", "SlotMachine3x3.csproj", "{D7F1FE66-6E39-4652-9013-006EB276A869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachine3x3.Tests", "..\SlotMachine3x3.Tests\SlotMachine3x3.Tests.csproj", "{EE79E3FE-57DE-4A23-83D8-E7643FFD6269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlotMachine3x3.XUnit.Tests", "..\SlotMachine3x3.Tests\SlotMachine3x3.XUnit.Tests.csproj", "{EE79E3FE-57DE-4A23-83D8-E7643FFD6269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

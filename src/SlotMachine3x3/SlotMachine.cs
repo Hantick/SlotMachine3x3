@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace VincenzoBot.Discord
+namespace SlotMachine3x3
 {
     public class SlotMachine : ISlotMachine
     {
         public uint Coins { get; set; } //Coins in the machine
         public uint Bet { get; set; }
-        private const uint _minimumCoins = 40;
+        private const uint MINIMUM_COINS = 40;
         //From lowest to highest win
         private const string Grape = "🍇";
         private const string Apple = "🍏";
@@ -38,7 +38,7 @@ namespace VincenzoBot.Discord
         {
             Bet = bet;
             Coins += Bet;
-            if (Coins <= _minimumCoins)
+            if (Coins <= MINIMUM_COINS)
                 throw new ArgumentException("Not enough coins in machine to provide all possible rewards!", "Coins");    //not sure
             return CheckWin();
         }
