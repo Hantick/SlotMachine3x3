@@ -11,8 +11,9 @@ namespace SlotMachine3x3
             middle = 1,
             bottom = 2
         }
-        public uint Coins { get; set; }                                  //Coins in the machine
+        public ulong Coins { get; set; }                                  //Coins in the machine
         public string[,] Slots { get; set; } = new string[3, 3];         //3x3 fields
+        public uint JackpotPercentage { get; set; } = 70;
         private readonly ISlotsRandomizer _slotsRandomizer;
         private readonly IWinChecker _winChecker;
 
@@ -40,6 +41,15 @@ namespace SlotMachine3x3
         public void AddCoins(uint coins)
         {
             Coins += coins;
+        }
+
+        public void SubstractCoins(uint coins)
+        {
+            if (Coins >= coins)
+                Coins -= coins;
+            else
+                Console.WriteLine("chuj");
+
         }
     }
 }

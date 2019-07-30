@@ -1,4 +1,5 @@
-﻿namespace SlotMachine3x3
+﻿using System;
+namespace SlotMachine3x3
 {
     public class WinChecker : IWinChecker
     {
@@ -34,23 +35,45 @@
         //    ⚜️🍒🔔
         private uint CheckRow(uint bet, int row)
         {
+            uint reward = 0;
             if (_slotMachine.Slots[row, 0] == _slotMachine.Slots[row, 1] && _slotMachine.Slots[row, 1] == _slotMachine.Slots[row, 2])
             {
                 if (_slotMachine.Slots[row, 0] == SlotMachineConstants.GRAPE)
-                    return bet + 3;
+                {
+                    reward = bet + (uint)(bet*0.8f);
+                    _slotMachine.SubstractCoins(reward);
+                    return reward;
+                }
                 else if (_slotMachine.Slots[row, 0] == SlotMachineConstants.APPLE)
-                    return bet + 6;
+                {
+                    reward = bet + (uint)(bet * 1.0f);
+                    _slotMachine.SubstractCoins(reward);
+                    return reward;
+                }
                 else if (_slotMachine.Slots[row, 0] == SlotMachineConstants.CHERRY)
-                    return bet + 10;
+                {
+                    reward = bet + (uint)(bet * 1.5f);
+                    _slotMachine.SubstractCoins(reward);
+                    return reward;
+                }
                 else if (_slotMachine.Slots[row, 0] == SlotMachineConstants.BELL)
-                    return bet + 20;
+                {
+                    reward = bet + (uint)(bet * 2.1f);
+                    _slotMachine.SubstractCoins(reward);
+                    return reward;
+                }
                 else if (_slotMachine.Slots[row, 0] == SlotMachineConstants.BAR)
-                    return bet + 40;
+                {
+                    reward = bet + (uint)(bet * 2.4f);
+                    _slotMachine.SubstractCoins(reward);
+                    return reward;
+                }
                 //JACKPOT!!!
                 else if (row == 1 && _slotMachine.Slots[row, 0] == SlotMachineConstants.JACK)
                 {
-                    uint coins = (uint)(_slotMachine.Coins * 0.80);
-                    _slotMachine.Coins -= coins;
+                    var y = (((_slotMachine.JackpotPercentage + 20) - (10 * Math.Log(_slotMachine.Coins)))) / 100;
+                    uint coins = (uint)(_slotMachine.Coins*y);
+                    _slotMachine.SubstractCoins(coins);
                     return coins;
                 }
             }
