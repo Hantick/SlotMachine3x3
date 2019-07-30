@@ -32,9 +32,11 @@ namespace SlotMachine3x3
         }
         public uint Play(uint bet)
         {
+            if (Coins >= SlotMachineConstants.MAXIMUM_COINS)
+                throw new ArgumentException("Machine is full!", "Coins");
             Coins += bet;
             if (Coins <= SlotMachineConstants.MINIMUM_COINS)
-                throw new ArgumentException("Not enough coins in machine to provide all possible rewards!", "Coins");    //not sure
+                throw new ArgumentException("Not enough coins in machine to provide all possible rewards!", "Coins");
             Slots = _slotsRandomizer.Prepare();
             return _winChecker.CheckWin(bet);
         }

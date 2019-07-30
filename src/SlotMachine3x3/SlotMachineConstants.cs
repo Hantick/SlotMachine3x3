@@ -7,6 +7,8 @@ namespace SlotMachine3x3
     public class SlotMachineConstants
     {
         public const uint MINIMUM_COINS = 100;
+        public const uint MAXIMUM_COINS = 1000000;
+
         //From lowest to highest win
         public const string GRAPE = "🍇";
         public const string APPLE = "🍏";
